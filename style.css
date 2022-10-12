@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+:root {
+  --Red: hsl(0, 78%, 62%);
+  --Cyan: hsl(180, 62%, 55%);
+  --Orange: hsl(34, 97%, 64%);
+  --Blue: hsl(212, 86%, 64%);
+  --Very-Dark-Blue: hsl(234, 12%, 34%);
+  --Grayish-Blue: hsl(229, 6%, 66%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --font: "Poppins", sans-serif;
+  --border-top: 4px solid;
+  --border-radius: 7px;
+  --shadow: 0 25px 8px -15px #e0e9f0;
+}
+
+/*******
+Global
+*******/
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  font-family: var(--font);
+  padding: 20px;
+  background: var(--Very-Light-Gray);
+}
+
+/*******
+Header
+*******/
+
+header {
+  text-align: center;
+  display: grid;
+  place-content: center;
+  margin-bottom: 70px;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: clamp(1rem, 5vw, 2rem);
+  color: var(--Very-Dark-Blue);
+}
+
+span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+header p {
+  min-width: 20rem;
+  max-width: 29rem;
+  text-align: center;
+  font-size: clamp(0.6rem, 3.5vw, 0.8rem);
+  color: var(--Grayish-Blue);
+}
+
+/*******
+Cards-Container
+*******/
+
+.cards-center {
+  display: grid;
+  place-content: center;
+  gap: 30px;
+  grid-template-rows: repeat(3, 1fr);
+  margin-bottom: 30px;
+}
+
+/*******
+Cards
+*******/
+.card {
+  min-height: 205px;
+  max-width: 300px;
+  padding: 25px;
+  background-color: white;
+  display: grid;
+  grid-template-rows: 28px auto 50px;
+  border-radius: 7px;
+  box-shadow: 0 25px 8px -15px #e0e9f0;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  align-self: center;
+  color: var(--Very-Dark-Blue);
+}
+
+.card p {
+  color: var(--Grayish-Blue);
+  font-size: 0.8rem;
+}
+
+.card img {
+  width: 50px;
+  height: 50px;
+  justify-self: end;
+}
+
+.supervisor {
+  border-top: 4px solid var(--Cyan);
+}
+
+.team-builder {
+  border-top: var(--border-top) var(--Red);
+}
+
+.karma {
+  border-top: var(--border-top) var(--Orange);
+}
+
+.calculator {
+  border-top: var(--border-top) var(--Blue);
+}
+
+footer {
+  text-align: center;
+  color: var(--Very-Dark-Blue);
+  font-size: 0.6rem;
+}
+
+@media screen and (min-width: 950px) {
+  .cards-center {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .cards-center {
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "supervisor team-builder calculator"
+      "supervisor karma calculator";
+  }
+
+  .supervisor {
+    grid-area: supervisor;
+    align-self: center;
+  }
+  .team-builder {
+    grid-area: team-builder;
+  }
+  .calculator {
+    grid-area: calculator;
+    align-self: center;
+  }
+  .karma {
+    grid-area: karma;
+  }
+
+  header {
+    margin-bottom: 30px;
+  }
+}
